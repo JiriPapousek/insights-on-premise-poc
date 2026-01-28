@@ -38,7 +38,7 @@ spec:
               name: search-postgres
               key: database-name
       imagePullSecrets:
-      - name: quay-pull-secret
+      - name: ccxdev-insights-on-prem-poc-pull-secret
   selector:
     matchLabels:
       app: insights-on-prem

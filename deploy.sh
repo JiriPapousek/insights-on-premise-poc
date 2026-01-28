@@ -1,10 +1,9 @@
 #!/bin/bash
 oc apply -f deploy/namespace.yml
-#oc apply -f deploy/search-postgres-network-policy.yml
 oc get secret search-postgres -n open-cluster-management -o json | \
   jq 'del(.metadata.namespace, .metadata.uid, .metadata.resourceVersion, .metadata.creationTimestamp, .metadata.ownerReferences) | .metadata.namespace = "insights-on-prem-poc"' | \
   oc apply --namespace insights-on-prem-poc -f -
-oc apply -f deploy/quay-secret.yml --namespace insights-on-prem-poc
+oc apply -f deploy/ccxdev-insights-on-prem-poc-secret.yml --namespace insights-on-prem-poc
 oc apply -f deploy/insights.yml --namespace insights-on-prem-poc
 oc apply -f deploy/service.yml --namespace insights-on-prem-poc
 
