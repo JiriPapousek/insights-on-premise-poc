@@ -4,6 +4,8 @@ A Python application using FastAPI that receives archives from Insights Operator
 
 Unlike full pipeline deployment, it doesn't utilize Kafka nor S3-compatible storage for communication between individual components.
 
+As of now, the PoC replicates some of the logic originally contained in `ingress`, `ccx-data-pipeline`, `insights-content-service` and `insights-results-aggregator`.
+
 
 ## Project Structure
 
@@ -35,10 +37,6 @@ insights-on-premise-poc/
 │   ├── namespace.yml
 │   ├── insights.yml             # Main deployment
 │   └── service.yml
-├── rules-content/               # Rules content repository
-│   ├── config.yaml
-│   ├── external/                # External rules (DVO, OCS, security)
-│   └── internal/                # Internal rules (various categories)
 ├── requirements.txt
 ├── docker-compose.yml           # PostgreSQL + app
 ├── Dockerfile
